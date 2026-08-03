@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand navbar-nsuk">
+  <div class="container-fluid px-3 px-lg-4">
+    <a class="navbar-brand" href="/dashboard">
+      <span class="brand-mark">LB</span>
+      <span>LinguaBridge</span>
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" id="sidebarToggle" style="border-color: rgba(255,255,255,.4);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <ul class="navbar-nav ms-auto flex-row align-items-center gap-2">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center gap-2" href="#" role="button" data-bs-toggle="dropdown">
+          <span class="rounded-circle bg-white text-nsuk-green d-flex align-items-center justify-content-center"
+                style="width:32px;height:32px; background: var(--nsuk-gold-400); color: var(--nsuk-green-900); font-weight:700;"
+                id="userInitial">U</span>
+          <span id="userNameLabel" class="d-none d-md-inline">Account</span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li><a class="dropdown-item" href="/profile"><i class="fa-solid fa-user me-2"></i>My Profile</a></li>
+          <li><a class="dropdown-item" href="/settings"><i class="fa-solid fa-gear me-2"></i>Settings</a></li>
+          <li class="admin-only" style="display:none;"><a class="dropdown-item" href="/admin"><i class="fa-solid fa-shield-halved me-2"></i>Admin Dashboard</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item text-danger" href="#" id="logoutBtn"><i class="fa-solid fa-right-from-bracket me-2"></i>Log Out</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>

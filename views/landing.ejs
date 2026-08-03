@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body>
+  <%- include('partials/navbar') %>
+
+  <!-- HERO -->
+  <header class="hero-section">
+    <div class="hero-pattern"></div>
+    <div class="container position-relative">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-7">
+          <span class="hero-eyebrow"><i class="fa-solid fa-graduation-cap me-2"></i>Final-Year Computer Science Project</span>
+          <h1 class="mt-3 mb-3">Break language barriers with academic-grade machine translation.</h1>
+          <p class="lead">LinguaBridge lets students, researchers, and staff translate text across dozens of
+            languages instantly — powered by the Google Cloud Translation API, with full history, favorites,
+            and account management built in.</p>
+          <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="/register" class="btn btn-nsuk-gold btn-lg"><i class="fa-solid fa-user-plus me-2"></i>Create Free Account</a>
+            <a href="/login" class="btn btn-outline-light btn-lg"><i class="fa-solid fa-right-to-bracket me-2"></i>Log In</a>
+          </div>
+          <div class="d-flex gap-4 mt-5 flex-wrap">
+            <div><div class="fs-3 fw-bold text-white">4</div><small class="text-white-50">Languages: English, Hausa, Igbo, Yoruba</small></div>
+            <div><div class="fs-3 fw-bold text-white">Auto</div><small class="text-white-50">Language Detection</small></div>
+            <div><div class="fs-3 fw-bold text-white">24/7</div><small class="text-white-50">Available Online</small></div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <div class="card-nsuk p-4">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="fw-semibold text-muted-soft small"><i class="fa-solid fa-circle-play me-1"></i>Quick Preview</span>
+                <span class="badge badge-role-user">English → Yoruba</span>
+              </div>
+              <div class="border rounded p-3 mb-2 bg-light-subtle" style="background:#f7f6f0;">
+                <small class="text-muted-soft d-block mb-1">Original</small>
+                Welcome to the Department of Computer Science.
+              </div>
+              <div class="text-center my-2 text-muted-soft"><i class="fa-solid fa-arrow-down"></i></div>
+              <div class="border rounded p-3" style="background: var(--nsuk-green-100);">
+                <small class="text-muted-soft d-block mb-1">Translated</small>
+                Kaabo si Ẹka Kọmputa Saikíẹ̀nsì.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-title-eyebrow">About the Project</span>
+          <h2 class="mt-2">A translation portal designed the way real academic software is built.</h2>
+          <div class="divider-gold"></div>
+          <p class="text-muted-soft">LinguaBridge was built as a demonstration of full-stack engineering
+            practice: a secure Node.js/Express API, a normalized MySQL schema, JWT-based authentication,
+            and a clean MVC-organized codebase — wrapped in an interface designed for everyday use rather
+            than as a one-off demo.</p>
+          <p class="text-muted-soft mb-0">Every translation is powered by Google's Cloud Translation API v3,
+            with automatic language detection, translation history, and account management layered on top.</p>
+        </div>
+        <div class="col-lg-6">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="card-nsuk p-3 h-100"><i class="fa-solid fa-shield-halved fs-3 text-nsuk-green" style="color:var(--nsuk-green-700)"></i>
+                <h6 class="mt-3 mb-1">Secure by Design</h6><small class="text-muted-soft">JWT auth, bcrypt hashing, rate limiting.</small></div>
+            </div>
+            <div class="col-6">
+              <div class="card-nsuk p-3 h-100"><i class="fa-solid fa-database fs-3" style="color:var(--nsuk-green-700)"></i>
+                <h6 class="mt-3 mb-1">Reliable Storage</h6><small class="text-muted-soft">Normalized MySQL schema with full history.</small></div>
+            </div>
+            <div class="col-6">
+              <div class="card-nsuk p-3 h-100"><i class="fa-solid fa-bolt fs-3" style="color:var(--nsuk-green-700)"></i>
+                <h6 class="mt-3 mb-1">Fast Translation</h6><small class="text-muted-soft">Google Cloud Translation API v3.</small></div>
+            </div>
+            <div class="col-6">
+              <div class="card-nsuk p-3 h-100"><i class="fa-solid fa-mobile-screen fs-3" style="color:var(--nsuk-green-700)"></i>
+                <h6 class="mt-3 mb-1">Fully Responsive</h6><small class="text-muted-soft">Works on desktop, tablet, and mobile.</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section-alt">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-title-eyebrow">Features</span>
+        <h2 class="mt-2">Everything you need in a translation workspace</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+            <h5>Auto Language Detection</h5>
+            <p class="text-muted-soft mb-0 small">Not sure what language you're reading? Let LinguaBridge detect it automatically.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+            <h5>One-Click Language Swap</h5>
+            <p class="text-muted-soft mb-0 small">Instantly reverse source and target languages without retyping anything.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+            <h5>Searchable History</h5>
+            <p class="text-muted-soft mb-0 small">Every translation is saved. Search, favorite, or delete entries anytime.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-download"></i></div>
+            <h5>Copy &amp; Download</h5>
+            <p class="text-muted-soft mb-0 small">Export any translation as a text file or copy it straight to your clipboard.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-chart-line"></i></div>
+            <h5>Usage Insights</h5>
+            <p class="text-muted-soft mb-0 small">See your translation activity and most-used languages at a glance.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card-nsuk feature-card p-4 h-100">
+            <div class="feature-icon"><i class="fa-solid fa-lock"></i></div>
+            <h5>Private &amp; Secure</h5>
+            <p class="text-muted-soft mb-0 small">Your account and history are protected with industry-standard security.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUPPORTED LANGUAGES -->
+  <section id="languages">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-title-eyebrow">Supported Languages</span>
+        <h2 class="mt-2">Translate between English and three Nigerian languages</h2>
+        <p class="text-muted-soft">LinguaBridge translates directly between any pair of the four languages
+          below — not only via English.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3">
+          <div class="card-nsuk feature-card text-center py-4">
+            <div class="feature-icon mx-auto"><i class="fa-solid fa-language"></i></div>
+            <h5 class="mb-0">English</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card-nsuk feature-card text-center py-4">
+            <div class="feature-icon mx-auto"><i class="fa-solid fa-language"></i></div>
+            <h5 class="mb-0">Hausa</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card-nsuk feature-card text-center py-4">
+            <div class="feature-icon mx-auto"><i class="fa-solid fa-language"></i></div>
+            <h5 class="mb-0">Igbo</h5>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <div class="card-nsuk feature-card text-center py-4">
+            <div class="feature-icon mx-auto"><i class="fa-solid fa-language"></i></div>
+            <h5 class="mb-0">Yoruba</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="section-alt">
+    <div class="container">
+      <div class="text-center mb-5">
+        <span class="section-title-eyebrow">How It Works</span>
+        <h2 class="mt-2">Three simple steps</h2>
+      </div>
+      <div class="row g-4 text-center">
+        <div class="col-md-4">
+          <div class="fs-1 fw-bold" style="color: var(--nsuk-gold-400);">1</div>
+          <h5>Create an account</h5>
+          <p class="text-muted-soft small">Register in seconds with your name, email, and a secure password.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="fs-1 fw-bold" style="color: var(--nsuk-gold-400);">2</div>
+          <h5>Paste your text</h5>
+          <p class="text-muted-soft small">Choose a source and target language, or let auto-detect handle it.</p>
+        </div>
+        <div class="col-md-4">
+          <div class="fs-1 fw-bold" style="color: var(--nsuk-gold-400);">3</div>
+          <h5>Translate instantly</h5>
+          <p class="text-muted-soft small">Copy, download, or save your translation to your personal history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-4">
+          <span class="section-title-eyebrow">FAQ</span>
+          <h2 class="mt-2">Frequently Asked Questions</h2>
+          <p class="text-muted-soft">Can't find what you're looking for? Reach out via the contact section below.</p>
+        </div>
+        <div class="col-lg-8">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">Is LinguaBridge free to use?</button></h2>
+              <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted-soft">Yes — creating an account and translating text is completely free as part of this academic project.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">How accurate are the translations?</button></h2>
+              <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted-soft">Translations are generated by Google's Cloud Translation API, the same engine used across many production applications, so quality is high — though nuance and idioms can occasionally be lost, as with any machine translation tool.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Is my translation history private?</button></h2>
+              <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted-soft">Yes. Your history is tied to your account and protected behind authentication — only you (and system administrators, for moderation purposes) can access it.</div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">Can I delete my translation history?</button></h2>
+              <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-muted-soft">Yes — you can delete individual entries or clear your entire history at any time from the History page.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section-alt">
+    <div class="container">
+      <div class="row g-5 align-items-center">
+        <div class="col-lg-6">
+          <span class="section-title-eyebrow">Contact</span>
+          <h2 class="mt-2">Have a question about this project?</h2>
+          <p class="text-muted-soft">This is an academic demonstration project. For inquiries related to the
+            build, reach out using the form and a response will be provided where applicable.</p>
+          <ul class="list-unstyled text-muted-soft">
+            <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>project@linguabridge.local</li>
+            <li class="mb-2"><i class="fa-solid fa-location-dot me-2"></i>Department of Computer Science</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="card-nsuk p-4">
+            <form>
+              <div class="mb-3">
+                <label class="form-label">Full Name</label>
+                <input type="text" class="form-control" placeholder="Enter your name">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" placeholder="you@example.com">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Message</label>
+                <textarea class="form-control" rows="4" placeholder="How can we help?"></textarea>
+              </div>
+              <button type="submit" class="btn btn-nsuk-primary w-100">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>
+  <%- include('partials/overlays') %>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>

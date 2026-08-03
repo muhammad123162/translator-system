@@ -1,0 +1,23 @@
+<aside class="app-sidebar col-12 col-lg-2" id="appSidebar">
+  <nav class="nav flex-column">
+    <a class="nav-link <%= activePage === 'dashboard' ? 'active' : '' %>" href="/dashboard">
+      <i class="fa-solid fa-gauge"></i> Dashboard
+    </a>
+    <a class="nav-link <%= activePage === 'translator' ? 'active' : '' %>" href="/translator">
+      <i class="fa-solid fa-language"></i> Translator
+    </a>
+    <a class="nav-link <%= activePage === 'history' ? 'active' : '' %>" href="/history">
+      <i class="fa-solid fa-clock-rotate-left"></i> History
+    </a>
+    <a class="nav-link <%= activePage === 'profile' ? 'active' : '' %>" href="/profile">
+      <i class="fa-solid fa-user"></i> Profile
+    </a>
+    <a class="nav-link <%= activePage === 'settings' ? 'active' : '' %>" href="/settings">
+      <i class="fa-solid fa-gear"></i> Settings
+    </a>
+    <hr class="my-2">
+    <a class="nav-link admin-only <%= activePage === 'admin' ? 'active' : '' %>" href="/admin" style="display:none;">
+      <i class="fa-solid fa-shield-halved"></i> Admin Panel
+    </a>
+  </nav>
+</aside>

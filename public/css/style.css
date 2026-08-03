@@ -1,0 +1,394 @@
+/* =====================================================================
+   Multi-Language Text Translator — Stylesheet
+   Theme: original academic identity inspired by NSUK's green/white/gold
+   palette. No official logos, crests, or layouts are reproduced here —
+   colors and general "university portal" mood only.
+   ===================================================================== */
+
+:root {
+  /* --- Palette --- */
+  --nsuk-green-900: #0b3d24;
+  --nsuk-green-700: #145c34;
+  --nsuk-green-600: #1b7a44;
+  --nsuk-green-100: #e6f2ea;
+  --nsuk-gold-600: #b9922c;
+  --nsuk-gold-400: #d4af37;
+  --nsuk-gold-100: #faf3dd;
+  --nsuk-cream: #fbfaf6;
+  --nsuk-ink: #22281f;
+  --nsuk-ink-soft: #565f52;
+  --nsuk-border: #e3e2d8;
+  --nsuk-white: #ffffff;
+  --nsuk-danger: #b3261e;
+  --nsuk-success: #1b7a44;
+
+  --font-heading: 'Merriweather', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(11, 61, 36, 0.06), 0 1px 1px rgba(11, 61, 36, 0.04);
+  --shadow-md: 0 6px 16px rgba(11, 61, 36, 0.08);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--nsuk-ink);
+  background-color: var(--nsuk-cream);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, .font-heading {
+  font-family: var(--font-heading);
+  color: var(--nsuk-green-900);
+  font-weight: 700;
+}
+
+a { color: var(--nsuk-green-700); text-decoration: none; }
+a:hover { color: var(--nsuk-green-900); }
+
+.text-muted-soft { color: var(--nsuk-ink-soft); }
+
+/* --- Buttons --- */
+.btn-nsuk-primary {
+  background-color: var(--nsuk-green-700);
+  border-color: var(--nsuk-green-700);
+  color: var(--nsuk-white);
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+  transition: background-color .15s ease, transform .1s ease;
+}
+.btn-nsuk-primary:hover {
+  background-color: var(--nsuk-green-900);
+  border-color: var(--nsuk-green-900);
+  color: var(--nsuk-white);
+}
+.btn-nsuk-primary:active { transform: translateY(1px); }
+
+.btn-nsuk-gold {
+  background-color: var(--nsuk-gold-400);
+  border-color: var(--nsuk-gold-400);
+  color: var(--nsuk-green-900);
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-sm);
+}
+.btn-nsuk-gold:hover { background-color: var(--nsuk-gold-600); border-color: var(--nsuk-gold-600); color: var(--nsuk-green-900); }
+
+.btn-nsuk-outline {
+  background: transparent;
+  border: 1.5px solid var(--nsuk-green-700);
+  color: var(--nsuk-green-700);
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  padding: 0.55rem 1.35rem;
+}
+.btn-nsuk-outline:hover { background: var(--nsuk-green-100); color: var(--nsuk-green-900); }
+
+/* --- Navbar --- */
+.navbar-nsuk {
+  background: linear-gradient(180deg, var(--nsuk-green-900), var(--nsuk-green-700));
+  box-shadow: var(--shadow-sm);
+  padding-top: .65rem;
+  padding-bottom: .65rem;
+}
+.navbar-nsuk .navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--nsuk-white);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.navbar-nsuk .brand-mark {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: var(--nsuk-gold-400);
+  color: var(--nsuk-green-900);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-family: var(--font-heading);
+}
+.navbar-nsuk .nav-link {
+  color: rgba(255,255,255,.85);
+  font-weight: 500;
+  padding: .5rem .9rem !important;
+}
+.navbar-nsuk .nav-link:hover,
+.navbar-nsuk .nav-link.active { color: var(--nsuk-gold-400); }
+
+/* --- Hero (Landing) --- */
+.hero-section {
+  position: relative;
+  background: radial-gradient(1200px 500px at 85% -10%, rgba(212,175,55,0.18), transparent),
+              linear-gradient(160deg, var(--nsuk-green-900) 0%, var(--nsuk-green-700) 55%, var(--nsuk-green-600) 100%);
+  color: var(--nsuk-white);
+  padding: 6rem 0 5rem;
+  overflow: hidden;
+}
+.hero-section .hero-eyebrow {
+  color: var(--nsuk-gold-400);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .8rem;
+}
+.hero-section h1 { color: var(--nsuk-white); font-size: clamp(2rem, 4vw, 3rem); }
+.hero-section p.lead { color: rgba(255,255,255,.85); }
+.hero-pattern {
+  position: absolute; inset: 0;
+  opacity: 0.08;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--nsuk-white) 1px, transparent 1.5px),
+    radial-gradient(circle at 60% 70%, var(--nsuk-white) 1px, transparent 1.5px),
+    radial-gradient(circle at 85% 20%, var(--nsuk-white) 1px, transparent 1.5px);
+  background-size: 140px 140px;
+  pointer-events: none;
+}
+
+/* --- Cards --- */
+.card-nsuk {
+  background: var(--nsuk-white);
+  border: 1px solid var(--nsuk-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.card-nsuk .card-body { padding: 1.5rem; }
+.feature-card {
+  border-top: 3px solid var(--nsuk-gold-400);
+}
+.feature-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--nsuk-green-100);
+  color: var(--nsuk-green-700);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem;
+  margin-bottom: .9rem;
+}
+.stat-card { border-left: 4px solid var(--nsuk-green-600); }
+.stat-card .stat-value { font-family: var(--font-heading); font-size: 1.9rem; color: var(--nsuk-green-900); }
+
+/* --- Sections --- */
+.section-title-eyebrow {
+  color: var(--nsuk-gold-600);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  font-size: .8rem;
+}
+section { padding: 4.5rem 0; }
+.section-alt { background: var(--nsuk-green-100); }
+
+/* --- Auth pages --- */
+body.auth-page {
+  background: linear-gradient(160deg, var(--nsuk-green-900), var(--nsuk-green-700) 60%, var(--nsuk-green-600));
+  min-height: 100vh;
+}
+.auth-card {
+  background: var(--nsuk-white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+}
+.auth-card .auth-side {
+  background: radial-gradient(800px 400px at 20% 0%, rgba(212,175,55,.25), transparent),
+              linear-gradient(160deg, var(--nsuk-green-900), var(--nsuk-green-700));
+  color: var(--nsuk-white);
+  padding: 2.5rem;
+}
+.auth-card .auth-side ul li { margin-bottom: .6rem; }
+.form-label { font-weight: 600; color: var(--nsuk-green-900); font-size: .9rem; }
+.form-control:focus, .form-select:focus {
+  border-color: var(--nsuk-green-600);
+  box-shadow: 0 0 0 .2rem rgba(27,122,68,.15);
+}
+
+/* --- App shell (dashboard/translator/history/admin) --- */
+body.app-page { background: var(--nsuk-cream); }
+.app-sidebar {
+  background: var(--nsuk-white);
+  border-right: 1px solid var(--nsuk-border);
+  min-height: calc(100vh - 62px);
+  padding: 1.25rem .75rem;
+}
+.app-sidebar .nav-link {
+  color: var(--nsuk-ink-soft);
+  border-radius: var(--radius-sm);
+  padding: .6rem .8rem;
+  font-weight: 500;
+  display: flex; align-items: center; gap: .65rem;
+  margin-bottom: .15rem;
+}
+.app-sidebar .nav-link i { width: 18px; text-align: center; color: var(--nsuk-green-700); }
+.app-sidebar .nav-link:hover { background: var(--nsuk-green-100); color: var(--nsuk-green-900); }
+.app-sidebar .nav-link.active {
+  background: var(--nsuk-green-700);
+  color: var(--nsuk-white);
+}
+.app-sidebar .nav-link.active i { color: var(--nsuk-gold-400); }
+.app-main { padding: 1.75rem; }
+
+/* --- Translator page --- */
+.translator-panel textarea {
+  resize: vertical;
+  min-height: 220px;
+  font-size: 1.02rem;
+}
+.lang-swap-btn {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--nsuk-border);
+  background: var(--nsuk-white);
+  color: var(--nsuk-green-700);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform .2s ease;
+}
+.lang-swap-btn:hover { transform: rotate(180deg); background: var(--nsuk-green-100); }
+.char-counter { font-size: .8rem; color: var(--nsuk-ink-soft); }
+.translator-toolbar .btn { font-size: .85rem; }
+
+/* --- Tables --- */
+.table-nsuk thead { background: var(--nsuk-green-100); }
+.table-nsuk thead th { color: var(--nsuk-green-900); font-weight: 700; font-size: .82rem; text-transform: uppercase; letter-spacing: .03em; border-bottom: none; }
+.table-nsuk td, .table-nsuk th { vertical-align: middle; }
+
+/* --- Badges --- */
+.badge-role-admin { background: var(--nsuk-gold-400); color: var(--nsuk-green-900); }
+.badge-role-user { background: var(--nsuk-green-100); color: var(--nsuk-green-700); }
+
+/* --- Footer --- */
+.footer-nsuk {
+  background: var(--nsuk-green-900);
+  color: rgba(255,255,255,.75);
+  padding: 3rem 0 1.5rem;
+}
+.footer-nsuk h6 { color: var(--nsuk-gold-400); text-transform: uppercase; font-size: .8rem; letter-spacing: .06em; }
+.footer-nsuk a { color: rgba(255,255,255,.75); }
+.footer-nsuk a:hover { color: var(--nsuk-gold-400); }
+.footer-nsuk hr { border-color: rgba(255,255,255,.15); }
+
+/* --- Loading / spinner --- */
+.loading-overlay {
+  position: fixed; inset: 0;
+  background: rgba(11,61,36,.55);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2000;
+  visibility: hidden; opacity: 0;
+  transition: opacity .15s ease;
+}
+.loading-overlay.active { visibility: visible; opacity: 1; }
+.loading-overlay .spinner-border { color: var(--nsuk-gold-400); width: 3rem; height: 3rem; }
+
+/* --- Toasts container tweak --- */
+.toast-container { z-index: 2100; }
+
+/* --- Utility --- */
+.divider-gold {
+  width: 56px; height: 3px;
+  background: var(--nsuk-gold-400);
+  border-radius: 2px;
+  margin: .75rem 0 1.25rem;
+}
+
+@media (max-width: 767.98px) {
+  .app-sidebar { min-height: auto; }
+  section { padding: 3rem 0; }
+  .hero-section { padding: 3.5rem 0 3rem; }
+  .hero-section h1 { font-size: 1.75rem; }
+}
+
+/* --- Optional Dark Mode (app shell only) --- */
+body.app-page[data-theme="dark"] {
+  --nsuk-cream: #10160f;
+  --nsuk-white: #1a2118;
+  --nsuk-ink: #e8e6de;
+  --nsuk-ink-soft: #a9ab9f;
+  --nsuk-border: #2c342a;
+  --nsuk-green-100: #1c2b20;
+  background-color: var(--nsuk-cream);
+}
+body.app-page[data-theme="dark"] .card-nsuk,
+body.app-page[data-theme="dark"] .app-sidebar,
+body.app-page[data-theme="dark"] .table-nsuk {
+  background: var(--nsuk-white);
+  border-color: var(--nsuk-border);
+  color: var(--nsuk-ink);
+}
+body.app-page[data-theme="dark"] .form-control,
+body.app-page[data-theme="dark"] .form-select {
+  background-color: var(--nsuk-white);
+  border-color: var(--nsuk-border);
+  color: var(--nsuk-ink);
+}
+body.app-page[data-theme="dark"] h1,
+body.app-page[data-theme="dark"] h2,
+body.app-page[data-theme="dark"] h3,
+body.app-page[data-theme="dark"] h4,
+body.app-page[data-theme="dark"] h5,
+body.app-page[data-theme="dark"] h6 { color: var(--nsuk-ink); }
+
+/* =====================================================================
+   Theme consistency pass — Bootstrap defaults to blue for several
+   interactive components (accordion, switches, pagination, dropdown
+   active state). Overridden here so nothing breaks the green/gold
+   identity ("consistent design language" requirement).
+   ===================================================================== */
+
+/* Accordion (FAQ) */
+.accordion-button:not(.collapsed) {
+  background-color: var(--nsuk-green-100);
+  color: var(--nsuk-green-900);
+  box-shadow: none;
+}
+.accordion-button:focus { box-shadow: 0 0 0 .2rem rgba(27,122,68,.15); border-color: var(--nsuk-green-600); }
+.accordion-button::after { filter: hue-rotate(60deg) saturate(1.4); }
+
+/* Switches (form-check-input) — used in Settings dark mode, Admin active toggles */
+.form-check-input:checked {
+  background-color: var(--nsuk-green-700);
+  border-color: var(--nsuk-green-700);
+}
+.form-check-input:focus {
+  border-color: var(--nsuk-green-600);
+  box-shadow: 0 0 0 .2rem rgba(27,122,68,.15);
+}
+
+/* Pagination (History page) */
+.pagination .page-link { color: var(--nsuk-green-700); }
+.pagination .page-item.active .page-link {
+  background-color: var(--nsuk-green-700);
+  border-color: var(--nsuk-green-700);
+}
+.pagination .page-link:focus { box-shadow: 0 0 0 .2rem rgba(27,122,68,.15); }
+
+/* Dropdown menus (user account menu) */
+.dropdown-item.active, .dropdown-item:active {
+  background-color: var(--nsuk-green-100);
+  color: var(--nsuk-green-900);
+}
+
+/* Inline button spinners (form submit states) inherit the theme gold,
+   not Bootstrap's default. */
+.btn .spinner-border { border-color: currentColor; border-right-color: transparent; }
+
+/* Subtle, minimal hover lift for interactive cards — avoids the
+   "flashy/futuristic" look the spec explicitly asks to avoid. */
+.card-nsuk.feature-card, .card-nsuk.stat-card {
+  transition: box-shadow .18s ease, transform .18s ease;
+}
+.card-nsuk.feature-card:hover, .card-nsuk.stat-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+/* Consistent focus outline for keyboard navigation (accessibility, not
+   just mouse users). */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--nsuk-gold-400);
+  outline-offset: 2px;
+}

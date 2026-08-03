@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-nsuk sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <span class="brand-mark">LB</span>
+      <span>LinguaBridge<br><small style="font-weight:400; font-size:.65rem; opacity:.8;">Academic Translation Portal</small></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" style="border-color: rgba(255,255,255,.4);">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link <%= activePage === 'landing' ? 'active' : '' %>" href="/#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#languages">Languages</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#how-it-works">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="/#faq">FAQ</a></li>
+
+        <li class="nav-item guest-only ms-lg-2">
+          <a class="nav-link <%= activePage === 'login' ? 'active' : '' %>" href="/login">Log In</a>
+        </li>
+        <li class="nav-item guest-only">
+          <a class="btn btn-nsuk-gold btn-sm ms-lg-1" href="/register">Get Started</a>
+        </li>
+
+        <li class="nav-item auth-only" style="display:none;">
+          <a class="btn btn-nsuk-gold btn-sm ms-lg-2" href="/dashboard">Go to Dashboard</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

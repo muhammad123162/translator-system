@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="<%= bodyClass %>">
+  <%- include('partials/app-topbar') %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include('partials/sidebar') %>
+
+      <main class="col-12 col-lg-10 app-main">
+        <div class="d-flex flex-wrap justify-content-between align-items-center mb-4">
+          <div>
+            <h3 class="mb-1">Welcome back, <span id="welcomeName">there</span> 👋</h3>
+            <p class="text-muted-soft mb-0">Here's a snapshot of your translation activity.</p>
+          </div>
+          <a href="/translator" class="btn btn-nsuk-primary"><i class="fa-solid fa-language me-2"></i>New Translation</a>
+        </div>
+
+        <!-- Stat cards -->
+        <div class="row g-3 mb-4">
+          <div class="col-md-4">
+            <div class="card-nsuk stat-card p-3">
+              <small class="text-muted-soft text-uppercase">Total Translations</small>
+              <div class="stat-value" id="statTotal">—</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-nsuk stat-card p-3">
+              <small class="text-muted-soft text-uppercase">Languages Used</small>
+              <div class="stat-value" id="statLanguages">—</div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card-nsuk stat-card p-3">
+              <small class="text-muted-soft text-uppercase">Characters Translated</small>
+              <div class="stat-value" id="statCharacters">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-lg-8">
+            <div class="card-nsuk p-3">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h6 class="mb-0">Recent Translations</h6>
+                <a href="/history" class="small">View all history <i class="fa-solid fa-arrow-right ms-1"></i></a>
+              </div>
+              <div class="table-responsive">
+                <table class="table table-nsuk align-middle mb-0">
+                  <thead>
+                    <tr><th>Original</th><th>Translated</th><th>Pair</th><th>Date</th></tr>
+                  </thead>
+                  <tbody id="recentTranslationsBody">
+                    <tr><td colspan="4" class="text-center text-muted-soft py-4">Loading...</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card-nsuk p-3 h-100">
+              <h6 class="mb-3">Quick Tips</h6>
+              <ul class="list-unstyled small text-muted-soft mb-0">
+                <li class="mb-3"><i class="fa-solid fa-wand-magic-sparkles me-2" style="color: var(--nsuk-gold-600);"></i>Use Auto-Detect if you're unsure of the source language.</li>
+                <li class="mb-3"><i class="fa-solid fa-star me-2" style="color: var(--nsuk-gold-600);"></i>Favorite translations you use often for quick access later.</li>
+                <li class="mb-0"><i class="fa-solid fa-download me-2" style="color: var(--nsuk-gold-600);"></i>Download any translation as a plain text file to keep offline.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <%- include('partials/overlays') %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>

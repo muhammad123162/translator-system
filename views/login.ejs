@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="<%= bodyClass %>">
+  <div class="container">
+    <div class="row justify-content-center align-items-center min-vh-100 py-5">
+      <div class="col-lg-9">
+        <div class="auth-card row g-0">
+          <div class="col-md-5 auth-side d-none d-md-flex flex-column justify-content-center">
+            <span class="brand-mark mb-3" style="width:44px;height:44px;">LB</span>
+            <h3 class="text-white font-heading">Welcome back to LinguaBridge</h3>
+            <p class="text-white-50">Log in to continue translating, review your history, and manage your account.</p>
+            <ul class="list-unstyled small mt-4">
+              <li><i class="fa-solid fa-check text-warning me-2"></i>English, Hausa, Igbo &amp; Yoruba</li>
+              <li><i class="fa-solid fa-check text-warning me-2"></i>Automatic language detection</li>
+              <li><i class="fa-solid fa-check text-warning me-2"></i>Full translation history</li>
+            </ul>
+          </div>
+          <div class="col-md-7 p-5">
+            <h4 class="mb-1">Log In</h4>
+            <p class="text-muted-soft mb-4">Enter your credentials to access your account.</p>
+
+            <form id="loginForm" novalidate>
+              <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" required>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Password</label>
+                <div class="input-group">
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                  <button class="btn btn-outline-secondary" type="button" id="togglePassword"><i class="fa-solid fa-eye"></i></button>
+                </div>
+                <div class="invalid-feedback">Password is required.</div>
+              </div>
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="rememberMe">
+                  <label class="form-check-label small" for="rememberMe">Remember me</label>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-nsuk-primary w-100 mb-3" id="loginSubmitBtn">
+                <i class="fa-solid fa-right-to-bracket me-2"></i>Log In
+              </button>
+              <p class="text-center small text-muted-soft mb-0">
+                Don't have an account? <a href="/register">Create one</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <%- include('partials/overlays') %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

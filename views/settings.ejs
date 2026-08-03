@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+</head>
+<body class="<%= bodyClass %>">
+  <%- include('partials/app-topbar') %>
+  <div class="container-fluid">
+    <div class="row">
+      <%- include('partials/sidebar') %>
+
+      <main class="col-12 col-lg-10 app-main">
+        <h3 class="mb-1">Settings</h3>
+        <p class="text-muted-soft mb-4">Personalize your LinguaBridge experience.</p>
+
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="card-nsuk p-4 mb-4">
+              <h6 class="mb-3">Appearance</h6>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <div class="fw-semibold">Dark Mode</div>
+                  <small class="text-muted-soft">Switch the app interface to a dark color scheme.</small>
+                </div>
+                <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="darkModeToggle" style="width: 3em; height: 1.5em;">
+                </div>
+              </div>
+            </div>
+
+            <div class="card-nsuk p-4">
+              <h6 class="mb-3">Translation Preferences</h6>
+              <div class="mb-3">
+                <label class="form-label">Default Target Language</label>
+                <select class="form-select" id="defaultTargetLanguage">
+                  <option value="en">English</option>
+                  <option value="ha">Hausa</option>
+                  <option value="ig">Igbo</option>
+                  <option value="yo">Yoruba</option>
+                </select>
+                <div class="form-text">Used to pre-select a target language when you open the Translator.</div>
+              </div>
+              <button class="btn btn-nsuk-primary" id="savePrefsBtn"><i class="fa-solid fa-floppy-disk me-2"></i>Save Preferences</button>
+            </div>
+          </div>
+
+          <div class="col-lg-5">
+            <div class="card-nsuk p-4 border-danger-subtle">
+              <h6 class="mb-3 text-danger"><i class="fa-solid fa-triangle-exclamation me-2"></i>Danger Zone</h6>
+              <p class="small text-muted-soft">Clearing your history permanently deletes all saved translations.
+                This cannot be undone.</p>
+              <a href="/history" class="btn btn-outline-danger btn-sm">Manage Translation History</a>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <%- include('partials/overlays') %>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/settings.js"></script>
+</body>
+</html>
