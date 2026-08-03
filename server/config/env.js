@@ -19,8 +19,13 @@ const REQUIRED_VARS = [
   'DB_NAME',
   'JWT_SECRET',
   'JWT_REFRESH_SECRET',
-  'GOOGLE_CLOUD_PROJECT_ID',
 ];
+
+// Only require real Google Cloud config when NOT using mock translation —
+// lets the app boot and be fully demoable before Cloud Billing is set up.
+if (process.env.USE_MOCK_TRANSLATION !== 'true') {
+  REQUIRED_VARS.push('GOOGLE_CLOUD_PROJECT_ID');
+}
 
 function validateEnv() {
   const missing = REQUIRED_VARS.filter((key) => !process.env[key]);
@@ -64,6 +69,12 @@ module.exports = {
   google: {
     projectId: process.env.GOOGLE_CLOUD_PROJECT_ID,
     credentialsPath: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+    // When true, translationService returns simulated translations
+    // instead of calling the real Google Cloud Translation API.
+    // Useful for demoing/developing before Cloud Billing is set up —
+    // flip this back to false (or remove it) once real credentials
+    // and billing are active. No other code changes are needed.
+    useMockTranslation: process.env.USE_MOCK_TRANSLATION === 'true',
   },
 
   rateLimit: {

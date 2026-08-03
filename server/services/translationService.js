@@ -1,17 +1,61 @@
-const { TranslationServiceClient } = require('@google-cloud/translate').v3;
 const config = require('../config/env');
 const AppError = require('../utils/AppError');
 const logger = require('../utils/logger');
+const { SUPPORTED_LANGUAGES } = require('../config/constants');
 
 /**
- * The v3 client authenticates automatically via
- * GOOGLE_APPLICATION_CREDENTIALS (a service-account JSON key path),
- * so no key material ever appears in source code — it's supplied
- * entirely through the environment, per the "Secure API
- * authentication" requirement.
+ * The real Google client is only constructed when mock mode is off,
+ * and only on first use (not at module load) — this means the app
+ * can boot and be fully demoable even with no Google credentials
+ * present at all, as long as USE_MOCK_TRANSLATION=true in .env.
  */
-const client = new TranslationServiceClient();
-const parent = `projects/${config.google.projectId}/locations/global`;
+let client = null;
+function getClient() {
+  if (!client) {
+    const { TranslationServiceClient } = require('@google-cloud/translate').v3;
+    client = new TranslationServiceClient();
+  }
+  return client;
+}
+const parent = () => `projects/${config.google.projectId}/locations/global`;
+
+/**
+ * A small phrase dictionary so the mock mode demo looks convincing
+ * for common greetings, rather than obviously fake gibberish. Keys
+ * are lowercased English phrases; anything not found falls back to a
+ * clearly-labeled mock string (see translateTextMock).
+ */
+const MOCK_PHRASES = {
+  hello: { ha: 'Sannu', ig: 'Ndewo', yo: 'Bawo' },
+  'welcome to the department of computer science': {
+    ha: 'Barka da zuwa Sashen Kimiyyar Kwamfuta',
+    ig: 'Nnọọ na ngalaba sayensị kọmputa',
+    yo: 'Kaabo si Ẹka Kọmputa Saikíẹ̀nsì',
+  },
+  'thank you': { ha: 'Na gode', ig: 'Daalụ', yo: 'E se' },
+  'how are you': { ha: 'Yaya kake', ig: 'Kedu ka ị mere', yo: 'Bawo ni' },
+  'good morning': { ha: 'Barka da safiya', ig: 'Ụtụtụ ọma', yo: 'E kaaro' },
+};
+
+function translateTextMock(text, targetLanguageCode, sourceLanguageCode) {
+  const key = text.trim().toLowerCase();
+  const entry = MOCK_PHRASES[key];
+
+  if (entry && entry[targetLanguageCode]) {
+    return {
+      translatedText: entry[targetLanguageCode],
+      detectedSourceLanguage: sourceLanguageCode === 'auto' ? 'en' : sourceLanguageCode,
+    };
+  }
+
+  // Clearly labeled so nobody mistakes this for a real translation
+  // during a demo — the goal is to exercise the full app flow
+  // (history, favorites, stats) while Google Cloud billing is pending.
+  return {
+    translatedText: `[MOCK ${targetLanguageCode.toUpperCase()} TRANSLATION] ${text}`,
+    detectedSourceLanguage: sourceLanguageCode === 'auto' ? 'en' : sourceLanguageCode,
+  };
+}
 
 /**
  * Translates text, optionally auto-detecting the source language.
@@ -23,8 +67,13 @@ const parent = `projects/${config.google.projectId}/locations/global`;
  * @param {string} [sourceLanguageCode] omit or pass 'auto' to auto-detect
  */
 async function translateText(text, targetLanguageCode, sourceLanguageCode) {
+  if (config.google.useMockTranslation) {
+    logger.info('USE_MOCK_TRANSLATION is on — returning a simulated translation, not calling Google.');
+    return translateTextMock(text, targetLanguageCode, sourceLanguageCode);
+  }
+
   const request = {
-    parent,
+    parent: parent(),
     contents: [text],
     mimeType: 'text/plain',
     targetLanguageCode,
@@ -34,7 +83,7 @@ async function translateText(text, targetLanguageCode, sourceLanguageCode) {
   };
 
   try {
-    const [response] = await client.translateText(request);
+    const [response] = await getClient().translateText(request);
     const translation = response.translations[0];
 
     return {
@@ -64,8 +113,12 @@ async function translateText(text, targetLanguageCode, sourceLanguageCode) {
  * detected before they commit to a target language.
  */
 async function detectLanguage(text) {
+  if (config.google.useMockTranslation) {
+    return { languageCode: 'en', confidence: 0.99 };
+  }
+
   try {
-    const [response] = await client.detectLanguage({ parent, content: text });
+    const [response] = await getClient().detectLanguage({ parent: parent(), content: text });
     const best = response.languages.sort((a, b) => b.confidence - a.confidence)[0];
     return best ? { languageCode: best.languageCode, confidence: best.confidence } : null;
   } catch (err) {
@@ -80,8 +133,12 @@ async function detectLanguage(text) {
  * rather than hand-maintaining it forever).
  */
 async function listSupportedLanguages(displayLanguageCode = 'en') {
+  if (config.google.useMockTranslation) {
+    return SUPPORTED_LANGUAGES.map((l) => ({ languageCode: l.code, displayName: l.name }));
+  }
+
   try {
-    const [response] = await client.getSupportedLanguages({ parent, displayLanguageCode });
+    const [response] = await getClient().getSupportedLanguages({ parent: parent(), displayLanguageCode });
     return response.languages.map((l) => ({
       languageCode: l.languageCode,
       displayName: l.displayName,
